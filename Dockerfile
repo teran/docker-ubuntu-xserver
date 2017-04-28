@@ -20,6 +20,13 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rvf /var/lib/apt/lists/*
 
+RUN apt-get update && \
+    apt-get install -y \
+      firefox \
+      icedtea-7-plugin && \
+    apt-get clean && \
+    rm -rvf /var/lib/apt/lists/*
+
 RUN useradd -d /home/user -m -s /bin/bash user
 
 COPY entrypoint.sh /entrypoint.sh
