@@ -27,8 +27,14 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rvf /var/lib/apt/lists/*
 
-RUN (echo password ; echo password) | vncpasswd
+RUN useradd -d /home/user -m -s /bin/bash user
 
 COPY entrypoint.sh /entrypoint.sh
+
+USER user
+WORKDIR /home/user
+ENV HOME=/home/user
+
+RUN (echo password ; echo password) | vncpasswd
 
 CMD ["/entrypoint.sh"]
