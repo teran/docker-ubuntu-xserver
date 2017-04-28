@@ -23,7 +23,7 @@ RUN apt-get update && \
 RUN apt-get update && \
     apt-get install -y \
       firefox \
-      icedtea-8-plugin && \
+      icedtea-7-plugin && \
     apt-get clean && \
     rm -rvf /var/lib/apt/lists/*
 
